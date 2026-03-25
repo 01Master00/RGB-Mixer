@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RGB_ColorMixer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="450">
+        Title="MainWindow" Height="500" Width="600">
     <Grid>
         <TextBlock Width="200" Height="30" Text="RGB Színkeverő" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" TextWrapping="Wrap" FontWeight="Bold" FontSize="20"/>
         <TextBlock x:Name="RedTB" HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Red" VerticalAlignment="Top"/>
@@ -29,6 +29,15 @@
         <Button x:Name="Randomiser" Content="Véletlen szín" Width="100" Height="20" Margin="60,0,0,59" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="RanomiseColorClick"/>
         <Button x:Name="ResetColor" Content="Szín alaphelyzet" Width="100" Height="20" Margin="60,0,0,34" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="ResetColorClick"/>
         <Button x:Name="ResetCanvas" Content="Canvas törlése" Width="100" Height="20" Margin="60,0,0,9" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="ResetCanvaClick"/>
+
+        <Border BorderBrush="Black" BorderThickness="5" Width="300" Height="300" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+            <Canvas x:Name="canva" MouseUp="CanvaClicked" Background="Transparent"/>
+        </Border>
+
+        <TextBlock Text="Ecset vastagság: x" x:Name="BrushW" Width="130" Height="20" Margin="0,315,180,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
+        <Slider Width="200" Height="20" Maximum="50"  x:Name="BrushWSlider" ValueChanged="Slider_ValueChanged" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,335,110,0" />
+        <RadioButton x:Name="CircleBrush" Content="Kör"  Width="50" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,365,260,0" />
+        <RadioButton x:Name="RectBrush" IsChecked="True" Content="Négyzet"  Width="100" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,365,160,0" />
 
 
     </Grid>

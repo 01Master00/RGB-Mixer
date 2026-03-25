@@ -98,7 +98,7 @@ namespace RGB_ColorMixer
 
         private void ResetCanvaClick(object sender, RoutedEventArgs e)
         {
-
+            canva.Children.Clear();
         }
 
         private void ChangeText()
@@ -122,6 +122,34 @@ namespace RGB_ColorMixer
 
         }
 
+        private void CanvaClicked(object sender, MouseButtonEventArgs e)
+        {
+            if ((bool)CircleBrush.IsChecked)
+            {
+                Ellipse ellipse = new Ellipse();
+                ellipse.Fill = new SolidColorBrush(rgb);
+                ellipse.Width = BrushWSlider.Value;
+                ellipse.Height = BrushWSlider.Value;
+                Canvas.SetLeft(ellipse, e.GetPosition(canva).X - (BrushWSlider.Value / 2));
+                Canvas.SetTop(ellipse, e.GetPosition(canva).Y - (BrushWSlider.Value / 2));
+                canva.Children.Add(ellipse);
+            }
+            else
+            {
+                Rectangle rectangle = new Rectangle();
+                rectangle.Fill = new SolidColorBrush(rgb);
+                rectangle.Width = BrushWSlider.Value;
+                rectangle.Height = BrushWSlider.Value;
+                Canvas.SetLeft(rectangle, e.GetPosition(canva).X - (BrushWSlider.Value / 2));
+                Canvas.SetTop(rectangle, e.GetPosition(canva).Y - (BrushWSlider.Value / 2));
+                canva.Children.Add(rectangle);
 
+            }
+        }
+
+        private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            BrushW.Text = $"Ecset vastagság: {e.NewValue}";
+        }
     }
 }
